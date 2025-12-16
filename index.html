@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CM2 - Socle Commun Aventures</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div id="sidebar">
+        <div class="expand-hint">➜</div>
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+        </div>
+        
+        <a href="#" data-navigate="accueil" class="sidebar-link active-link">🏠 <span>Accueil</span></a>
+        <a href="#" data-navigate="maths" class="sidebar-link">📐 <span>Mathématiques</span></a>
+        <a href="#" data-navigate="francais" class="sidebar-link">📚 <span>Français</span></a>
+        <a href="#" data-navigate="histoire" class="sidebar-link">📜 <span>Histoire & Géo</span></a>
+        <a href="#" data-navigate="sciences" class="sidebar-link">🔬 <span>Sciences</span></a>
+        
+        <div class="sidebar-separator-line"></div>
+        
+        <a href="#" data-navigate="forum" class="sidebar-link">💬 <span>Forum</span></a>
+        <a href="#" data-navigate="contribution" class="sidebar-link">🤝 <span>Contribuer</span></a>
+        <a href="#" data-navigate="parents" class="sidebar-link">👨‍🏫 <span>Espace Parents</span></a>
+        <a href="#" data-navigate="quiz" class="sidebar-link nav-button">🚀 <span>Quiz !</span></a>
+    </div>
+
+    <div id="main-content">
+        <header>
+            <div class="logo">Socle CM2 Aventures</div>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Rechercher (ex: Fraction, Louis XVI...)">
+                <button id="search-button">🔍</button>
+            </div>
+        </header>
+    
+        <main>
+            <section id="accueil" class="page-section active-section">
+                <div class="hero-section">
+                    <h1>Bienvenue, jeune explorateur ! 🌟</h1>
+                    <p class="slogan">Prêt à devenir un champion du CM2 ? Ici, tu apprends à ton rythme.</p>
+                </div>
+                
+                <div id="thematics">
+                    <h2>Tes Matières</h2>
+                    <div class="card-container">
+                        <div class="card" data-navigate="maths">
+                            <h3>Mathématiques</h3>
+                            <p>Nombres, Calculs, Géométrie.</p>
+                        </div>
+                        <div class="card" data-navigate="francais">
+                            <h3>Français</h3>
+                            <p>Grammaire, Conjugaison.</p>
+                        </div>
+                        <div class="card" data-navigate="histoire">
+                            <h3>Histoire & Géo</h3>
+                            <p>De la Révolution à l'Europe.</p>
+                        </div>
+                        <div class="card" data-navigate="sciences">
+                            <h3>Sciences</h3>
+                            <p>Corps humain et Énergie.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="defi-du-jour" class="interactive-section">
+                    <div class="defi-header">
+                        <h2>🔥 Le Défi du Jour</h2>
+                        <div class="user-score-display">Ton score : <span id="my-defi-score">12</span> pts</div>
+                    </div>
+                    
+                    <p class="sous-titre-small">Prochaine question dans : <span id="countdown">--:--:--</span></p>
+                    
+                    <div id="defi-content-box">
+                        <h3 id="defi-question-text">Chargement...</h3>
+                    </div>
+                    
+                    <div id="defi-input-zone">
+                        <input type="text" id="defi-user-answer" placeholder="Ta réponse..." required>
+                        <button id="valider-defi-btn" class="challenge-button">Valider</button>
+                    </div>
+                    <div id="defi-feedback" class="feedback-hidden"></div>
+                    
+                    <h3 style="margin-top: 30px; color:#555;">🏆 Classement du Mois</h3>
+                    <div class="podium-container">
+                        <div class="podium-step silver">
+                            <div class="avatar">🥈</div>
+                            <div class="name">Léa_92</div>
+                            <div class="points">28 pts</div>
+                            <div class="step-block">2</div>
+                        </div>
+                        <div class="podium-step gold">
+                            <div class="crown">👑</div>
+                            <div class="avatar">🥇</div>
+                            <div class="name">MathsKing</div>
+                            <div class="points">30 pts</div>
+                            <div class="step-block">1</div>
+                        </div>
+                        <div class="podium-step bronze">
+                            <div class="avatar">🥉</div>
+                            <div class="name">Hugo_B</div>
+                            <div class="points">25 pts</div>
+                            <div class="step-block">3</div>
+                        </div>
+                    </div>
+                    <ul class="ranking-list">
+                        <li><span class="rank">4.</span> <span class="user">SuperEleve</span> <span class="pts">22 pts</span></li>
+                        <li><span class="rank">5.</span> <span class="user">Léo_CM2</span> <span class="pts">20 pts</span></li>
+                        <li style="background-color: #e9f7ff; border: 2px solid #007bff; margin-top:10px;">
+                            <span class="rank">24.</span> <span class="user">Toi (Utilisateur)</span> <span class="pts" id="ranking-score-display">12 pts</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section id="maths" class="page-section hub-page">
+                <h2>📐 Mathématiques</h2>
+                <div class="category-grid">
+                    <div class="category-card" data-navigate="maths-nombres"><h3>Les Nombres</h3><button class="nav-button-small">Ouvrir</button></div>
+                    <div class="category-card" data-navigate="maths-mesures"><h3>Mesures</h3><button class="nav-button-small">Ouvrir</button></div>
+                    <div class="category-card" data-navigate="maths-geometrie"><h3>Géométrie</h3><button class="nav-button-small">Ouvrir</button></div>
+                </div>
+            </section>
+            <section id="maths-nombres" class="page-section lecon-exercice-page">
+                <h2>Les Fractions</h2>
+                <div class="switch-button-container"><button class="switch-btn active-mode" onclick="toggleMode(this, 'lecon')">📚 Leçon</button><button class="switch-btn" onclick="toggleMode(this, 'exercice')">✏️ Exercices</button></div>
+                <div class="content-mode lecon-mode active-mode">
+                    <div class="lecon-box">
+                        <h3>Définition</h3>
+                        <p>Une fraction est un partage équitable. Le numérateur est en haut, le dénominateur en bas.</p>
+                        
+
+[Image of a pizza fraction]
+
+                    </div>
+                </div>
+                <div class="content-mode exercice-mode">
+                    <div class="exercice-box"><p>Simplifie 50/100.</p><button class="show-answer-btn">Réponse</button><p class="solution-text">1/2</p></div>
+                </div>
+            </section>
+            <section id="maths-mesures" class="page-section lecon-exercice-page"><h2>Périmètre</h2><div class="lecon-box"><p>Côté x 4</p></div></section>
+            <section id="maths-geometrie" class="page-section lecon-exercice-page"><h2>Solides</h2><div class="lecon-box"><p>Cube = 6 faces carrées.</p></div></section>
+
+            <section id="francais" class="page-section hub-page">
+                <h2>📚 Français</h2>
+                <div class="category-grid">
+                    <div class="category-card" data-navigate="francais-conjugaison"><h3>Conjugaison</h3><button class="nav-button-small">Ouvrir</button></div>
+                    <div class="category-card" data-navigate="francais-grammaire"><h3>Grammaire</h3><button class="nav-button-small">Ouvrir</button></div>
+                </div>
+            </section>
+            <section id="francais-conjugaison" class="page-section lecon-exercice-page"><h2>Conjugaison</h2><p>Le futur simple : ai, as, a, ons, ez, ont.</p></section>
+            <section id="francais-grammaire" class="page-section lecon-exercice-page"><h2>Grammaire</h2><p>Le verbe s'accorde avec le sujet.</p></section>
+
+            <section id="histoire" class="page-section hub-page">
+                <h2>📜 Histoire & Géographie</h2>
+                <div class="category-grid">
+                    <div class="category-card" data-navigate="histoire-revolution"><h3>La Révolution</h3><button class="nav-button-small">Accéder</button></div>
+                    <div class="category-card" data-navigate="histoire-napoleon"><h3>Napoléon</h3><button class="nav-button-small">Accéder</button></div>
+                </div>
+            </section>
+            <section id="histoire-revolution" class="page-section lecon-exercice-page">
+                <h2>La Révolution Française (1789)</h2>
+                <div class="lecon-box">
+                    <p>La prise de la Bastille le 14 juillet 1789 marque la fin de la monarchie absolue.</p>
+                </div>
+                <div class="exercice-box"><p>Qui était roi ?</p><button class="show-answer-btn">Réponse</button><p class="solution-text">Louis XVI</p></div>
+            </section>
+            <section id="histoire-napoleon" class="page-section lecon-exercice-page"><h2>Napoléon Bonaparte</h2><div class="lecon-box"><p>Il devient Empereur en 1804.</p></div></section>
+
+            <section id="sciences" class="page-section hub-page">
+                <h2>🔬 Sciences</h2>
+                <div class="category-grid">
+                    <div class="category-card" data-navigate="sciences-corps"><h3>Le Corps Humain</h3><button class="nav-button-small">Accéder</button></div>
+                    <div class="category-card" data-navigate="sciences-energie"><h3>L'Énergie</h3><button class="nav-button-small">Accéder</button></div>
+                </div>
+            </section>
+            <section id="sciences-corps" class="page-section lecon-exercice-page">
+                <h2>La Digestion</h2>
+                <div class="lecon-box">
+                    <p>Bouche > Œsophage > Estomac > Intestins.</p>
+                    
+
+[Image of human digestive system diagram]
+
+                </div>
+            </section>
+            <section id="sciences-energie" class="page-section lecon-exercice-page"><h2>Les Énergies</h2><div class="lecon-box"><p>Renouvelables (Soleil, Vent) vs Non-Renouvelables (Pétrole, Gaz).</p></div></section>
+
+            <section id="forum" class="page-section">
+                <h2>💬 Le Forum des Élèves</h2>
+                <div class="forum-container" id="forum-posts-container">
+                    
+                    <div class="forum-card">
+                        <div class="forum-icon">➗</div>
+                        <div class="forum-content">
+                            <div class="forum-header">
+                                <span class="tag-subject math">Maths</span>
+                                <span class="forum-date">Aujourd'hui 14:30</span>
+                            </div>
+                            <h4>Problème division à 2 chiffres</h4>
+                            <p>Je bloque quand il y a un reste, comment on fait la preuve ?</p>
+                            
+                            <div class="replies-container"></div>
+                            
+                            <div class="reply-action-area">
+                                <button class="reply-btn-small trigger-reply">↩️ Répondre</button>
+                                <div class="reply-input-box" style="display: none;">
+                                    <textarea placeholder="Ta réponse..."></textarea>
+                                    <button class="nav-button-small send-reply">Envoyer</button>
+                                </div>
+                            </div>
+                            
+                            <div class="forum-footer">Par <strong>Léo</strong></div>
+                        </div>
+                    </div>
+
+                    <div class="forum-card">
+                        <div class="forum-icon">👑</div>
+                        <div class="forum-content">
+                            <div class="forum-header">
+                                <span class="tag-subject history">Histoire</span>
+                                <span class="forum-date">Hier 18:15</span>
+                            </div>
+                            <h4>Louis XIV</h4>
+                            <p>Pourquoi Versailles ?</p>
+                            
+                            <div class="replies-container"></div>
+                            
+                            <div class="reply-action-area">
+                                <button class="reply-btn-small trigger-reply">↩️ Répondre</button>
+                                <div class="reply-input-box" style="display: none;">
+                                    <textarea placeholder="Ta réponse..."></textarea>
+                                    <button class="nav-button-small send-reply">Envoyer</button>
+                                </div>
+                            </div>
+                            
+                            <div class="forum-footer">Par <strong>Sophie</strong></div>
+                        </div>
+                    </div>
+                </div>
+                <button id="create-subject-btn" class="challenge-button big-btn">➕ Créer un nouveau sujet</button>
+            </section>
+
+            <section id="contribution" class="page-section">
+                <h2>🤝 Espace Contribution</h2>
+                <div class="contribution-wrapper">
+                    <p class="contrib-intro">Aidez-nous à améliorer le site !</p>
+                    <form id="contribution-form">
+                        <div class="form-group">
+                            <label>Votre Email (pour la réponse) :</label>
+                            <input type="email" id="contributor-email" required placeholder="exemple@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Vous êtes :</label>
+                            <select id="contributor-role">
+                                <option value="eleve">🎓 Élève CM2</option>
+                                <option value="prof">🍎 Professeur</option>
+                                <option value="etudiant">📚 Étudiant</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Type de demande :</label>
+                            <select id="contributor-type">
+                                <option value="correction">🔧 Correction</option>
+                                <option value="question">❓ Question</option>
+                                <option value="amelioration">✨ Amélioration</option>
+                                <option value="ajout">➕ Ajout</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Matière concernée :</label>
+                            <input type="text" id="contrib-subject-name" placeholder="Ex: Maths, Histoire...">
+                        </div>
+                        <div class="form-group">
+                            <label>Votre Message :</label>
+                            <textarea id="contribution-text" required placeholder="Votre message..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn-styled">Envoyer la contribution 🚀</button>
+                    </form>
+                </div>
+            </section>
+            
+            <section id="parents" class="page-section">
+                <h2>👨‍🏫 Espace Parents & Enseignants</h2>
+                <div class="parent-content">
+                    <div class="parent-card">
+                        <h3>🎯 Objectifs du Socle Commun (CM2)</h3>
+                        <ul class="parent-list">
+                            <li><strong>Français :</strong> Lecture fluide, grammaire (accords), conjugaison (temps simples/composés).</li>
+                            <li><strong>Mathématiques :</strong> Nombres décimaux, fractions simples, géométrie, problèmes.</li>
+                            <li><strong>Culture :</strong> Histoire de France, repères géographiques, démarche scientifique.</li>
+                        </ul>
+                    </div>
+                    <div class="parent-card highlight">
+                        <h3>📢 Suivi & Corrigés</h3>
+                        <p>Les résultats des quiz sont stockés sur cette page dans l'onglet "Quiz". <br>Pour les défis du jour, la réponse s'affiche après validation.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="quiz" class="page-section">
+                <h2>🚀 QCM Interactif (15 Questions)</h2>
+                
+                <div id="quiz-stats-container" style="display:block; margin-bottom: 20px;">
+                    <h3>📈 Vos Statistiques (Temps Réel)</h3>
+                    <div class="stats-summary">
+                        <div class="stat-box"><span class="stat-value" id="stat-total">0</span><span class="stat-label">Total</span></div>
+                        <div class="stat-box"><span class="stat-value" id="stat-average">--/15</span><span class="stat-label">Moyenne</span></div>
+                        <div class="stat-box"><span class="stat-value" id="stat-best">--</span><span class="stat-label">Meilleur</span></div>
+                    </div>
+                    <div class="stats-bars" id="chart-bars-area"></div>
+                </div>
+                
+                <div id="quiz-container"><p>Chargement...</p></div>
+                <div id="quiz-result" class="notification-hidden">
+                    <p id="score-text"></p>
+                    <p id="feedback-text"></p>
+                </div>
+                <button id="submit-quiz-btn" class="challenge-button">Valider mes réponses</button>
+            </section>
+
+        </main>
+    </div>
+
+    <footer id="main-footer">
+        <p>&copy; 2025 Socle CM2 Aventures</p>
+    </footer>
+    
+    <div id="notification-popup" class="notification-hidden"></div>
+    <div id="confetti-container"></div>
+    
+    <div id="forum-modal-step1" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <h3>Nouveau Sujet : Étape 1</h3>
+            <div class="modal-form-group checkbox-group">
+                <input type="checkbox" id="anon-check">
+                <label for="anon-check">Poster en anonyme</label>
+            </div>
+            <p>Dans quelle matière ?</p>
+            <div class="modal-options">
+                <button class="select-subject-btn" data-sub="Maths" data-class="math">Mathématiques</button>
+                <button class="select-subject-btn" data-sub="Français" data-class="francais">Français</button>
+                <button class="select-subject-btn" data-sub="Histoire" data-class="history">Histoire</button>
+                <button class="select-subject-btn" data-sub="Sciences" data-class="science">Sciences</button>
+            </div>
+            <button class="modal-close-btn" onclick="closeAllModals()">Annuler</button>
+        </div>
+    </div>
+
+    <div id="forum-modal-step2" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <h3>Écrire votre message</h3>
+            <p id="forum-selected-info" style="color: #007bff; font-weight: bold;"></p>
+            <input type="text" id="new-post-title" class="modal-input" placeholder="Titre du sujet...">
+            <textarea id="new-post-body" class="modal-input" rows="4" placeholder="Votre question..."></textarea>
+            <button id="publish-forum-btn" class="challenge-button">Publier sur le forum</button>
+            <button class="modal-close-btn" onclick="closeAllModals()">Annuler</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
